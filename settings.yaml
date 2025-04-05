@@ -1,0 +1,50 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: theme-terminal-setting
+spec:
+  forms:
+    - group: basic
+      label: 基本设置
+      formSchema:
+        - $formkit: text
+          name: index_notice_title
+          label: 首页公告标题
+          value: "Hello Halo!"
+        - $formkit: textarea
+          name: index_notice_content
+          label: 首页公告内容
+          value: "一款 Terminal 风格的 Halo 主题。"
+        - $formkit: checkbox
+          name: pixel_style
+          label: 像素化风格
+          help: 开启后，将使用像素风格字体及图标。
+        - $formkit: checkbox
+          name: show_toc
+          label: 显示文章目录
+          help: 开启后，将在文章页面显示文章目录。
+    - group: beian
+      label: 备案设置
+      formSchema:
+        - $formkit: text
+          name: icp_text
+          label: ICP备案号
+        - $formkit: text
+          name: icp_link
+          label: ICP备案跳转链接
+          value: https://beian.miit.gov.cn/
+        - $formkit: text
+          name: gongan_text
+          label: 公安备案号
+        - $formkit: text
+          name: gongan_link
+          label: 公安备案跳转链接
+          value: https://www.beian.gov.cn/
+    - group: development
+      label: 开发设置
+      formSchema:
+        - $formkit: checkbox
+          name: enabled
+          label: 启用开发模式
+          value: false
+          help: 仅供开发环境使用，开启此设置后，所有静态资源由 Vite 开发服务器提供，所以需要在本地启动 Vite 服务（pnpm dev）
